@@ -1,0 +1,66 @@
+.addMenu {
+  text-align: center;
+  margin: auto;
+}
+
+.galleryImages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+}
+
+.galleryImages li {
+  flex: 0 0 32%;
+  margin-right: auto;
+  position: relative;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border: 1px solid grey;
+}
+
+.liContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonCart:hover {
+  background: #237c6e;
+}
+
+.buttonCart {
+  border: 2px solid red;
+  margin: auto;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.greenText {
+  color: #237c6e;
+  text-align: center;
+  margin: auto;
+  font-size: 30px;
+}
+.green {
+  background: rgb(71, 165, 71);
+}
+.yellow {
+  background: yellow;
+}
+.red {
+  background: rgb(243, 66, 80);
+}
+
+.galleryImages img {
+  display: block;
+  width: 100%;
+  height: 254px;
+}
+
+.linkItem:hover {
+  filter: brightness(50%);
+}
+
+.galleryImages li:hover::before {
+  display: block;
+}
