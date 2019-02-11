@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import queryString from 'query-string';
 import MenuGrid from '../modules/menu/MenuGridContainer';
 import { menuActions, menuSelectors, menuOperations } from '../modules/menu';
 import * as selectors from '../modules/Auth/selectors';
 
-class MenuPage extends Component {
+
+  class MenuPage extends Component {
   componentDidMount() {
-    const { getCategories, getAllMenu1 } = this.props;
+	const category = queryString.parse(this.props.location.search).category;
+    const { getCategories, getAllMenu1, getMenuItemsWithCategory} = this.props;
     getCategories();
-    getAllMenu1();
+	if(category !== undefined) {return getMenuItemsWithCategory (category)};
+	getAllMenu1();
   }
 
   render() {
@@ -28,6 +32,7 @@ const mapStateToProps = state => ({
   menu: menuSelectors.getItems(state),
   loading: menuSelectors.loading(state),
   categories: menuSelectors.getCategories(state),
+  category: menuSelectors.getMenuItemsWithCategory(state),
   error: menuSelectors.error(state),
   isAuthenticated: selectors.isAuthenticated(state),
 });

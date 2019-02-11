@@ -4,7 +4,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import routes from '../configs/routes';
 import ProtectedRoute from '../modules/Auth/ProtectedRoute/ProtectedRoute';
 import * as operations from '../modules/Auth/operations';
-
 import AppHeader from './AppHeader/AppHeader';
 import MenuPage from '../pages/Menu';
 import MenuItemPage from '../pages/MenuItem';

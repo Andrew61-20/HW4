@@ -16,19 +16,25 @@ export default class MenuGridContainer extends Component {
   };
 
   async componentDidUpdate(prevProps1) {
-    const prevCategory = getCategoryFromProps(prevProps1);
+	const prevCategory = getCategoryFromProps(prevProps1);
     const nextCategory = getCategoryFromProps(this.props);
     const { getMenuItemsWithCategory, getAllMenu1 } = this.props;
 
     if (prevCategory === nextCategory) return;
-    if (this.props.location.search === '?all') {
+    if (this.props.location.search === '/menu') {
       try {
         getAllMenu1();
       } catch (error) {}
       return;
-    }
-    try {
-      getMenuItemsWithCategory(nextCategory);
+  } else if (nextCategory === undefined) {
+		try {
+		 this.setState({ filter: false });
+	     getAllMenu1();
+      } catch (error) {}
+      return;
+	}
+	 try {
+	  getMenuItemsWithCategory(nextCategory);
     } catch (error) {}
   }
 
@@ -46,7 +52,7 @@ export default class MenuGridContainer extends Component {
     this.setState({ filter: false });
     history.push({
       pathname: location.pathname,
-      search: 'all',
+      search: '',
     });
   };
 

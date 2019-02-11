@@ -12,7 +12,7 @@ const getItemById = state => state.menu;
 const loading = state => state.loading;
 const error = state => state.error;
 const getCategories = state => state.categories;
-
+const getMenuItemsWithCategory = state => state.category;
 const getCartProductIds = state => state.cart.ids;
 const getCartProductAmounts = state => state.cart.amount;
 
@@ -35,6 +35,7 @@ export default {
   loading,
   error,
   getCategories,
+  getMenuItemsWithCategory,
   getProductIds,
   getProductsEntities,
   getItems,

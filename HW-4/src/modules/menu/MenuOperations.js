@@ -15,7 +15,6 @@ const fetchNotes1 = () => async dispatch => {
 
 const getMenuItemsWithCategory = category => async dispatch => {
   dispatch(actions.fetchRequest());
-
   try {
     const response = await axios.get(`/menu?category=${category}`);
     dispatch(actions.fetchSuccessCategory(response.data));
